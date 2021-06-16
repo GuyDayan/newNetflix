@@ -1,15 +1,24 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Date implements Printable {
+public class Date {
     private int year;
     private int month;
     private int day;
 
-    public Date(int day, int month,int year) {
+    public Date() {
+        Calendar calendar = new GregorianCalendar();
+        java.util.Date curr_date = new java.util.Date();
+        calendar.setTime(curr_date);
+        this.year = calendar.get(Calendar.YEAR);
+        this.month = calendar.get(Calendar.MONTH);
+        this.day = calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public Date(int year , int month , int day){
         this.year = year;
-        this.day = day;
         this.month = month;
+        this.day = day;
     }
 
     public int getYear() {
@@ -36,21 +45,9 @@ public class Date implements Printable {
         this.day = day;
     }
 
-    public static Date getCurrentDate() {
-        Calendar calendar = new GregorianCalendar();
-        java.util.Date curr_date = new java.util.Date();
-        calendar.setTime(curr_date);
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1;
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        return new Date(day, month, year);
-    }
-
+    @Override
     public String toString() {
         return this.day + "/" + this.month +"/" + this.year;
     }
 
-    public void print() {
-        System.out.println(this);
-    }
 }

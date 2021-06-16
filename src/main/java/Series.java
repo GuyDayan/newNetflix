@@ -1,4 +1,5 @@
 public class Series implements Printable {
+
     private String name;
     private Episode[] episodes;
 
@@ -25,14 +26,15 @@ public class Series implements Printable {
         this.episodes = episodes;
     }
 
-
+    @Override
     public void print() {
         System.out.println(this.name);
     }
+
+
     public void printEpisodesInfo() {
         for (int i =0; i < episodes.length; i++) {
-            System.out.println("Episode number " + (i + 1));
-            this.episodes[i].printInfo();
+            this.episodes[i].printEpisode();
         }
     }
 }

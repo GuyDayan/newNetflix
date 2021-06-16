@@ -1,14 +1,25 @@
-public class Episode implements Printable {
+public class Episode {
+
     private String name;
-    private  String overview;
-    private Date air_time;
+    private String overView;
+    private Date broadcastTime;
+    private int episodeNumber;
 
-    public Episode(String name, String overview, Date air_time) {
+    public Episode(int episodeNumber,String name, String overView, Date broadcastTime) {
+        this.episodeNumber = episodeNumber;
         this.name = name;
-        this.overview = overview;
-        this.air_time = air_time;
-
+        this.overView = overView;
+        this.broadcastTime = broadcastTime;
     }
+
+    public int getEpisodeNumber() {
+        return episodeNumber;
+    }
+
+    public void setEpisodeNumber(int episodeNumber) {
+        this.episodeNumber = episodeNumber;
+    }
+
     public String getName() {
         return name;
     }
@@ -17,31 +28,24 @@ public class Episode implements Printable {
         this.name = name;
     }
 
-    public String getOverview() {
-        return overview;
+    public String getOverView() {
+        return overView;
     }
 
-    public void setOverview(String overview) {
-        this.overview = overview;
+    public void setOverView(String overView) {
+        this.overView = overView;
     }
 
-    public Date getAir_time() {
-        return air_time;
+    public Date getBroadcastTime() {
+        return broadcastTime;
     }
 
-    public void setAir_time(Date air_time) {
-        this.air_time = air_time;
+    public void setBroadcastTime(Date broadcastTime) {
+        this.broadcastTime = broadcastTime;
     }
 
-
-    public void print() {
-        System.out.println(this.name);
-    }
-    public void printInfo() {
-        System.out.print("Episode name: ");
-        print();
-        System.out.println("Overview: " + this.overview);
-        System.out.print("Air date: ");
-        this.air_time.print();
+    public void printEpisode() {
+        System.out.println("Episode number:" +this.episodeNumber+ "\t" + "Episode-name: " +this.name+ "\t"+ "\t"+
+                "overView:" +this.overView +"\t" + "\t"+"broadcastTime:"+this.broadcastTime);
     }
 }

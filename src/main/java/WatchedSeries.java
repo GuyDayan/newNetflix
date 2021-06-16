@@ -5,8 +5,7 @@ public class WatchedSeries implements Printable  {
     public WatchedSeries(Series series, int last) {
         this.series = series;
         if (last < 0 || last > series.getEpisodes().length)
-            last = 0; //
-        this.lastEpisode = last;
+            this.lastEpisode = 0; //
     }
 
     public Series getSeries() {
@@ -17,9 +16,11 @@ public class WatchedSeries implements Printable  {
         this.series = series;
     }
 
+
     public int getLast() {
         return this.lastEpisode;
     }
+
     public Episode getLastEpisode() {
         return this.series.getEpisodes()[lastEpisode];
     }
@@ -33,6 +34,6 @@ public class WatchedSeries implements Printable  {
         System.out.print("Series :");
         series.print();
         System.out.print("Last episode watched :");
-        getLastEpisode().print();
+        getLastEpisode().printEpisode();
     }
 }
